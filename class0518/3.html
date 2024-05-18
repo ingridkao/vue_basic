@@ -21,7 +21,7 @@
             data() {
                 return {
                     res:0,
-                    count:10, //判斷count數字
+                    count:1,                    //判斷count數字
                     price:100,
                     dollar:0
                 }
@@ -37,11 +37,13 @@
                     //this.res = this.res -1
                     this.res -= this.count
                 },
-                parse(){
-                    return this.price * this.res
+                parse(){                        //total
+                    //return this.price * this.res 半正確寫法
+                    this.total = this.price * this.res
+                    return this.total
                 },
-                parseDollar(){
-                    return this.price *30
+                parseDollar(){                  //US dollar
+                    return this.price / 30
                 }
             },
         }).mount("#app")
