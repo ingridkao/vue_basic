@@ -45,7 +45,9 @@
     <div id="app">
         {{tab}}
         <button @click="changeColor">換色</button>
-        <div class="box" :class="'color' + tab"></div>
+        <div class="box" :class="['color' + tab]"></div>
+        <div :class="['box','color' + tab]"></div>
+
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>

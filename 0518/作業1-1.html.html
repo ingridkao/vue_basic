@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #6200ff;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orang {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="changeColor">換色</button>
+        <div :class="['box', currentColor]"></div>
+        <!-- {{init}} -->
+    </div>
+    <script src="https://unpkg.com/vue@3.4.27/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    colors: ["red", "orang", "yellow", "green", "blue", "purple"],
+                    init: 0,
+                    currentColor: "red",
+                };
+            },
+
+            methods: {
+                changeColor() {
+                    this.init = this.init + 1;
+                    if (this.init > 6) {
+                        this.init = 0;
+                    }
+                    this.currentColor = this.colors[this.init];
+                },
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
