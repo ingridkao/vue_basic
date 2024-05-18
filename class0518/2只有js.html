@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>123</div>
+    <script>
+        function add(number1,number2){
+            return parseFloat(number1) + parseInt(number2)
+        }
+        const res = add(50,5.8)
+
+        const addRes = (number1,number2) =>{   //箭頭函式
+            return parseFloat(number1) + parseInt(number2)
+        }
+        console.log(add(10,3));
+        console.log(addRes(200,3));
+        //'我是???，血型??'
+        const who =(name,blood) =>
+            `我是${name} 、血型 ${blood}`
+        
+        console.log(who('Justin','AB'));
+    </script>
+</body>
+</html>
