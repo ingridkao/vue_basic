@@ -23,16 +23,20 @@
           res: 0,
           count: 1,
           price: 100,
-          dollar: 0
+          total: 0
         }
       },
       methods: {
         parseDollar(){
-          console.log('adasdasd');
-          return this.price *30
+          // 錯誤寫法->以後用computed
+          return this.total / 30
         },
         parse(){
-          return this.price * this.res
+          // 半正確寫法
+          // return this.price * this.res
+          // 錯誤寫法
+          this.total = this.price * this.res
+          return this.total
         },
         add(){
           // this.res = this.res + 1
