@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        <p>21_{{name}}</p>
+        <h2 v-text="`${age}歲`"> </h2>
+        <p>{{live? "還有呼吸":"不會呼吸"}}</p>
+        <p v-text="music[0]"></p>
+        <p>{{music[1]}}</p>
+        <h2 >life-style : {{lifestyle}}</h2>
+        <h2 v-html="content"></h2>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        // debugger
+        // console.log(Vue)
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: "chiangsie",
+                    age: 24,
+                    music: ["ado","galagala"],
+                    lifestyle: "shit",
+                    content:'<div style="color:red; font-size : 50px;">damn</div>',
+                    live : true
+                };
+            }
+            
+        });
+        app.mount("#app");
+    </script>
 </body>
+
 </html>
