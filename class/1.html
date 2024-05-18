@@ -7,9 +7,37 @@
 </head>
 <body>
     <h1>hello world</h1>
+    <div id="app">
+        <p>I like {{hobbies[0]}},and I {{hobbies[0]}} everyday.</p>
+        <h6 v-text="skills.f2e"></h6>
+        <h6 v-text="gender"></h6>
+        <h6 v-html="skills.f2e"></h6>
+    </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
     <script>
         let h1 = document.querySelector("h1");
-        h1.style.textTransform = 'capcapitalize';
+        h1.style.textTransform = 'capitalize';
+        // console.log(Vue)
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name:'Peter',
+                    age:20,
+                    job:false,
+                    hobbies:['workout','volleyball','read'],
+                    skills:{
+                        f2e:['vue','sass'],
+                        b2e:['php'],
+                    },
+                    gender:null,
+                    content:'<div style="color:#f02;font-size:30px;width:100%;text-align:center">嘿嘿</div>',
+                }
+            },
+        })
+        app.mount("#app")
+        let a = ['apple']       
+        document.write(a[0])
     </script>
 </body>
 </html>
