@@ -47,36 +47,30 @@
 </head>
 <body>
     <div id="app">
-        <p v-for="n in 20">{{n}}</p>
+        <!-- <p v-for="n in 20">{{n}}</p> -->
+
+
         <h5>shopping cart</h5>
-        <div class="cart">
-            <img :src="cartList[0]['img']">
+
+        <div class="cartItem" v-for="(cartItem,cartIndex) in cartList":key="cartItem['id']">加入迴圈
+            
+            <div class="cart">
             <div>
+                <img :src="cartItem['img']">
             </div>
-            <h6>{{cartList[0]['title']}}</h6>
-            <p>{{cartList[0]['subTitle']}}</p>
-            <p>${{cartList[0]['price']}}</p>
+            <h6>{{cartItem['title']}}</h6>
+            <p>{{cartItem['subTitle']}}</p>
+            <p>${{cartItem['price']}}</p>
             <div>
-            <button @click="reduce(0)">-</button>
-            <span>{{cartList[0]['count']}}</span>
-            <button @click="add(0)">+</button>
+            <button @click="reduce(cartIndex)">-</button>
+            <span>{{cartItem['count']}}</span>
+            <button @click="add(cartIndex)">+</button>
             <button>X</button>
             </div>
-        </div>
-        <div class="cart">
-            <img :src="cartList[1]['img']">
-            <div>
-            </div>
-            <h6>{{cartList[1]['title']}}</h6>
-            <p>{{cartList[1]['subTitle']}}</p>
-            <p>${{cartList[1]['price']}}</p>
-            <div>
-            <button @click="reduce(1)">-</button>
-            <span>{{cartList[1]['count']}}</span>
-            <button @click="add(1)">+</button>
-            <button>X</button>
             </div>
         </div>
+
+        一般函數
         <div class="cart">
             <img :src="cartList[2]['img']">
             <div>
