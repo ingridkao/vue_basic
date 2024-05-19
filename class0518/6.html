@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #app{
-        }
         .cart{
             display: flex;
             justify-content: space-between;
@@ -47,12 +45,11 @@
 </head>
 <body>
     <div id="app">
-        <!-- <p v-for="n in 20">{{n}}</p> -->
-
+        <!-- <p v-for="n in 20">{{n}}</p> 迴圈介紹-->
 
         <h5>shopping cart</h5>
-
-        <div class="cartItem" v-for="(cartItem,cartIndex) in cartList":key="cartItem['id']">加入迴圈
+        <!-- 加入迴圈 -->
+        <div class="cartItem" v-for="(cartItem,cartIndex) in cartList":key="cartItem['id']">
             
             <div class="cart">
             <div>
@@ -70,8 +67,8 @@
             </div>
         </div>
 
-        一般函數
-        <div class="cart">
+        <!-- 一般函數 -->
+    <!-- <div class="cart">
             <img :src="cartList[2]['img']">
             <div>
             </div>
@@ -84,7 +81,9 @@
             <button @click="add(2)">+</button>
             <button>X</button>
             </div>
-        </div>
+        </div> -->
+
+        <span>Total$:</span>{{total}}
     </div>
     <div class="form"></div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -118,6 +117,19 @@
                             img:'/images/08.jpg',
                         },
                     ]
+                }
+            },
+            computed:{
+                total(){
+                    //想法
+                    // const prod1 = this.cartList[0]['price'] *this.cartList[0]['count']
+                    // const prod2 = this.cartList[1]['price'] *this.cartList[1]['count']
+                    // return prod1 + prod2
+                    let price = 0
+                    for(let index = 0 ; index  < this.cartList.length;index++){
+                        price += (this.cartList[index]['price']*this.cartList[index]['count'])
+                    }
+                    return price
                 }
             },
             methods: {
