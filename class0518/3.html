@@ -13,6 +13,7 @@
         <br>
         總價: {{ parse() }}
         美金: {{ parseDollar() }}
+        美金: {{ dollar }}
         
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -23,7 +24,12 @@
                     res:0,
                     count:1,                    //判斷count數字
                     price:100,
-                    dollar:0
+                }
+            },
+            computed:{
+                dollar(){
+                    // return this.total /30
+                    return (this.price *this.res)/30
                 }
             },
             methods: {
