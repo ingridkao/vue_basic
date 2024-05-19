@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <img src="/images/08.jpg" alt="">一般css<br>
+        
+        <img :src="imgUrl" style="width: 6rem;" alt="">加入css<br>
+        
+        <img :src="imgUrl" :style="{
+            width: `${widths}rem`,
+            backgroundColor: bg,
+            padding:`${padd}rem`,
+        }" alt="">函式寫<br>
+        <button @click="addW">切換</button><br>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    imgUrl:"/images/08.jpg",
+                    bg:'#ddd',
+                    widths:2,
+                    padd:0.5,
+                }
+            },
+            methods: {
+                addW(){
+                    //每次按下去加大圖片
+                    this.widths +=0.5
+                    //延伸:每次按下去改底色
+                    this.bg =`#${this.widths}${this.widths}${this.widths}`
+                }
+            },
+        }).mount("#app")
+    </script>
+</body>
+</html>
