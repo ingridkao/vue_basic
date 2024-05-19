@@ -12,7 +12,7 @@
     <button @click="add">+</button>
     <br>
     總價：{{ parse() }} 
-    美金：{{ parseDollar() }}
+    美金：{{ dollar }}
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -22,21 +22,17 @@
         return {
           res: 0,
           count: 1,
-          price: 100,
-          total: 0
+          price: 100
+        }
+      },
+      computed: {
+        dollar(){
+          return (this.price * this.res)/30
         }
       },
       methods: {
-        parseDollar(){
-          // 錯誤寫法->以後用computed
-          return this.total / 30
-        },
         parse(){
-          // 半正確寫法
-          // return this.price * this.res
-          // 錯誤寫法
-          this.total = this.price * this.res
-          return this.total
+          return this.price * this.res
         },
         add(){
           // this.res = this.res + 1
