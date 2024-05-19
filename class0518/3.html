@@ -11,7 +11,8 @@
     {{res}}
     <button @click="add">+</button>
     <br>
-    總價：{{ parse() }} 
+    <!-- 總價(調用methods)：{{ parse2() }}  -->
+    總價(使用computed)：{{ parse1 }} 
     美金：{{ dollar }}
   </div>
 
@@ -26,14 +27,20 @@
         }
       },
       computed: {
+        parse1(){
+          return this.price * this.res
+        },
         dollar(){
-          return (this.price * this.res)/30
+          // return (this.price * this.res)/30
+          // 使用computed
+          return this.parse / 30
         }
       },
       methods: {
-        parse(){
-          return this.price * this.res
-        },
+        // 可以把這段轉換的function拉到computed
+        // parse2(){
+        //   return this.price * this.res
+        // },
         add(){
           // this.res = this.res + 1
           if(this.res >= 100) return
