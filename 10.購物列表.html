@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>篩品列表</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>shopping cart</p>
+    <img src="images/1.png" alt="">
+    <div v-for="(itemValue, itemKey) in albums" :key="itemKey">
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          albums: [
+            {
+              name: "PUSH!",
+              singer: "Måneskin",
+              img: "",
+              price: 350,
+              count: 1
+            },
+            {
+              name: "MJWMX",
+              singer: "NewJeans",
+              img: "",
+              price: 360,
+              count: 1
+            },
+            {
+              name: "醜奴兒",
+              singer: "草東沒有派對",
+              img: "",
+              price: 330,
+              count: 1
+            },
+          ]
+        }
+      },
+      methods: {}
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

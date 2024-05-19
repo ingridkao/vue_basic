@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>篩品列表</title>
+</head>
+<body>
+    <div id="app">
+        <p>物件渲染</p>
+        <div v-for="(itemValue, itemKey) in comic" :key="itemKey">
+            {{ itemKey }}
+            <ul>
+                <li v-for="(name) in itemValue">{{name}}</li>
+            </ul>
+        </div>
+        <p>通常會使用這個方式，才能夠控制順序</p>
+        <div v-for="(itemValue, itemIndex) in comic2" :key="itemIndex">
+            {{ itemValue.name }}
+            <ul>
+                <li v-for="(name) in itemValue.character">{{name}}</li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    comic:{
+                        "葬送的芙莉蓮": ["芙莉蓮", "費倫", "修塔爾克"],
+                        "排球少年": ["日向翔陽", "影山飛雄", "孤爪研磨"],
+                    },
+                    comic2:[
+                        {
+                            name: "排球少年",
+                            character: ["日向翔陽", "影山飛雄", "孤爪研磨"]
+                        },
+                        {
+                            name: "葬送的芙莉蓮",
+                            character: ["芙莉蓮", "費倫", "修塔爾克"]
+                        },
+                    ]
+                }
+            },
+            methods: {}
+        }).mount('#app')
+    </script>
+</body>
+</html>
