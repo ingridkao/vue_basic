@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-for="ProdItem in product " :key="product.id">
+            <img :src="ProdItem.image" alt="">
+            <!-- <h6>{{ProdItem['title']}}</h6> -->
+            <p>
+                {{ProdItem?.rating?.rate}} ({{ProdItem?.rating?.count}})
+                <!-- {{parseInt(ProdItem?.rating?.rate)}}<br> -->
+                <span v-for = "star in parseInt(ProdItem?.rating?.rate)">*</span><br>
+                <span>{{ProdItem['price']}}元</span>
+            </p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    product:[]
+                }
+            },
+            mounted() {
+            fetch('https://fakestoreapi.com/products')
+            .then(res=>{
+                return res.json()
+            })
+            .then(json=>{
+                console.log(json)
+                this.product =json
+            })
+            },
+        }).mount("#app")
+    </script>
+</body>
+</html>
