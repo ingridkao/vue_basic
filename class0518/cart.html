@@ -75,6 +75,9 @@
         </div>
         <button>X</button>
       </div>
+      <div>
+        Total: $ {{total}}
+      </div>
     </div>
     <!-- <div class="form"></div> -->
   </div>
@@ -101,6 +104,24 @@
               img: "/images/2.png"
             },
           ]
+        }
+      },
+      computed: {
+        total(){
+          // 想法
+          // const prod1 = this.cartList[0]['price'] * this.cartList[0]['count']
+          // const prod2 = this.cartList[1]['price'] * this.cartList[1]['count']
+          // return prod1 + prod2
+  
+          // for迴圈
+          // let price = 0
+          // for (let index = 0; index < this.cartList.length; index++) {
+          //   price += (this.cartList[index]['price'] * this.cartList[index]['count'])        
+          // }
+          // return price
+
+          // Array.reduce
+          return this.cartList.reduce((total, item) => total + item.price * item.count, 0);
         }
       },
       methods: {
