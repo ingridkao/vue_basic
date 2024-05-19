@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 40px;
+            height: 40px;
+            background-color: #eee;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .black {
+            background-color: #000;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .tomato {
+            background-color: tomato;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="changeColor">Change Style</button>
+        <div class='box' :class = "color"></div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data () {
+                return{
+                    colorList:['red','green','blue','tomato','black'],
+                    color:'red',
+                }
+                },   
+                methods: {
+                 changeColor() {
+                    let i = Math.round(Math.random() * (this.color.length - 1))
+                    return this.color = this.colorList[i]
+                 }
+            },
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

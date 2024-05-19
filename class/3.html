@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="add">+</button>
+        {{res}}
+        <button @click="minus">-</button>
+        <br>
+        <p>總價:{{parse()}}</p>
+        <p>美金:{{parseDollar()}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data () {
+                return{
+                    res:0,
+                    count:30,
+                    total:0,
+                    dollar:0,
+                    price:10
+                }
+                },   
+                methods: {
+                 add () {
+                    if (this.res >= 120) return
+                    this.res += this.count
+                 },   
+                minus () {
+                    if (this.res > 0)
+                     return this.res -= this.count
+                },
+                parse () {
+                    return  this.price * this.res
+                },
+                parseDollar () {
+                    return this.price * this.res * 30
+                }
+            },
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
